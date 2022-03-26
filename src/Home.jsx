@@ -11,6 +11,10 @@ function Home(props) {
             
             </div>
             <div className="app">
+            <Link to="/redux">Redux / ToDo</Link>
+
+            </div>
+            <div className="app">
             <Link to="/homework">Home Work 12</Link>
             </div>
         </div>
