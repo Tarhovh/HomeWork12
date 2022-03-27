@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import { createStore } from "redux";
 import { todos, todosReducer } from "../features/todos/todosSlice";
 
 const store = createStore( todosReducer, todos)
