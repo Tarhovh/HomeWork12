@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function TodosRedux() {
+  
   const todos = useSelector(function (state) {
     return state;
   });
@@ -24,8 +25,6 @@ function TodosRedux() {
       },
     });
     setText("");
-
-
   };
 
   console.log(todos);
@@ -47,7 +46,7 @@ function TodosRedux() {
           >
             Clear the board
           </button>
-          </div>
+        </div>
         <div className="todo-header">
           <h1>To Do</h1>
           <div className="todo-items">
@@ -59,11 +58,10 @@ function TodosRedux() {
                   color: todo.isDone ? "green" : "red",
                 }}
               >
-               
                 <input
                   type="checkbox"
                   onClick={() => {
-                    dispatch({ type: "isDone", payload: {id: todo.id} });
+                    dispatch({ type: "isDone", payload: { id: todo.id } });
                   }}
                 ></input>
 

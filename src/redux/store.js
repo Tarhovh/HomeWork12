@@ -1,8 +1,28 @@
 import { createStore } from "redux";
-import { todos, todosReducer } from "../features/todos/todosSlice";
+import { todosReducer } from "../features/todos/todosSlice";
 
-const store = createStore( todosReducer, todos)
+function saveToLocalStorage(state) {
+  try {
+    const serialisedState = JSON.stringify(state);
+    localStorage.setItem("todosRedux", serialisedState);
+  } catch (e) {
+    console.warn(e);
+  }
+}
 
-console.log(store.getState());
+function loadFromLocalStorage() {
+  try {
+    const serialisedState = localStorage.getItem("todosRedux");
+    if (serialisedState === null) return undefined;
+    return JSON.parse(serialisedState);
+  } catch (e) {
+    console.warn(e);
+    return undefined;
+  }
+}
+
+const store = createStore(todosReducer, loadFromLocalStorage());
+
+store.subscribe(() => saveToLocalStorage(store.getState()));
 
 export default store;

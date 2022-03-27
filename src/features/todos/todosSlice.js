@@ -34,7 +34,7 @@ export function todosReducer(state = [], action) {
   }
 
   if (action.type === "clear-all") {
-    return []
+    return [];
   }
   return state;
 }
