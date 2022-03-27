@@ -25,7 +25,8 @@ function TodoItem({ todo, dispatch }) {
         >
           {todo.text}
         </div>
-
+        <input type="time" id="appt" name="appt"
+       min="09:00" max="18:00" required></input>
         <button
           onClick={() =>
             dispatch({ type: ACTIONS.DELETE, payload: { id: todo.id } })

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function TodosRedux() {
   const todos = useSelector(function (state) {
-    return state.todos;
+    return state;
   });
 
   const dispatch = useDispatch();
@@ -25,8 +25,10 @@ function TodosRedux() {
     });
     setText("");
 
-    console.log(todos);
+
   };
+
+  console.log(todos);
 
   return (
     <>
@@ -49,7 +51,7 @@ function TodosRedux() {
         <div className="todo-header">
           <h1>To Do</h1>
           <div className="todo-items">
-            {todos.map((todo) => (
+            {todos?.map((todo) => (
               <div
                 key={todo.id}
                 className="todo-item"
@@ -57,13 +59,16 @@ function TodosRedux() {
                   color: todo.isDone ? "green" : "red",
                 }}
               >
+               
                 <input
                   type="checkbox"
                   onClick={() => {
-                    dispatch({ type: "isDone", payload: { id: todo.id } });
+                    dispatch({ type: "isDone", payload: {id: todo.id} });
                   }}
                 ></input>
+
                 {todo.text}
+
                 <button
                   onClick={() =>
                     dispatch({

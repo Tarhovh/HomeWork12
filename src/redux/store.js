@@ -1,12 +1,8 @@
 import { combineReducers, createStore } from "redux";
 import { todos, todosReducer } from "../features/todos/todosSlice";
 
-const store = createStore( combineReducers({
-  todos: todosReducer,
-}),
-  {
-    todos: todos
-  }
-);
+const store = createStore( todosReducer, todos)
+
+console.log(store.getState());
 
 export default store;
