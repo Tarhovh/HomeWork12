@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function TodosRedux() {
   const todos = useSelector(function (state) {
-    console.log(state.todos);
     return state.todos;
   });
 
